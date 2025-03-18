@@ -42,9 +42,9 @@ const KpopContextProvider = ({children}) => {
     const [playList, setPlayList] = useState(data);
 
     return(
-        <KpopContextProvider value = {{data, playList, setPlayList}}>
+        <KPopContext.Provider value = {{data, playList, setPlayList}}>
             {children}
-        </KpopContextProvider>
+        </KPopContext.Provider>
     );
 }
 
