@@ -1,15 +1,24 @@
 // function Movie({ movie }) {
-function Movie({ id, coverImg, title, summary, genres }) {
-  return (
-    <div key={id}>
-      <img src={coverImg} alt={title}></img>
-      <h2>{title}</h2>
-      <p>{summary}</p>
-      <ul>
-        {genres.map((genres) => (<li key={genres}>{genres}</li>))}
-      </ul>
-    </div>
-  );
-}
+  import { Link } from "react-router-dom";
 
-export default Movie;
+  function Movie({ id, coverImg, title, summary, genres }) {
+    return (
+      <div className="movie-card">
+        <Link to={`/movie/${id}`}>
+          <img src={coverImg} alt={title} />
+        </Link>
+        <div className="movie-card-title">
+          <Link to={`/movie/${id}`}>{title}</Link>
+        </div>
+        <ul className="movie-card-genres">
+          {genres.map((genre) => (
+            <li key={genre}>{genre}</li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+  
+  export default Movie;
+  
+  // https://yts.mx/api/v2/movie_details.json?movie_id=${id}
